@@ -1,19 +1,35 @@
 {
-  "name": "@commmon-components/core",
+  "name": "@common-components/core",
   "version": "0.0.1",
   "description": "The core components",
-  "main": "index.js",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "files": [
+    "build"
+  ],
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": ""
+    "build": "rimraf build && rollup -c && tsc --outDir build --noEmit false"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "@material-ui/core": "4.11.0"
+    "@material-ui/core": "^4.11.0"
   },
   "devDependencies": {
-    "typescript": "4.0.3"
+    "@material-ui/core": "4.11.0",
+    "@rollup/plugin-commonjs": "15.1.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "rollup": "2.32.0",
+    "rollup-plugin-peer-deps-external": "2.2.3",
+    "rollup-plugin-typescript2": "0.28.0",
+    "rollup-plugin-generate-package-json": "3.2.0",
+    "typescript": "4.0.3",
+    "rimraf": "3.0.2",
+    "tslib": "2.0.3"
   },
   "repository": {
     "type": "git",
