@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@common-components/core": "file:../packages/core/build/common-components-core-0.0.1.tgz",
+    "@common-components/core": "0.0.1",
     "@material-ui/core": "4.11.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
