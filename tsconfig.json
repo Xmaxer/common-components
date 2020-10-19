@@ -1,24 +1,29 @@
 {
-  "compilerOptions": {
-    "lib": ["es6", "dom", "esnext", "es2016", "es2017"],
-    "target": "es6",
-    "jsx": "react",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
-    "allowJs": true,
-    "paths": {
-      "@common-components/core": ["./packages/common-components-core/src"],
-      "@common-components/core/*": ["./packages/common-components-core/src/*"]
-    }
-  },
-  "exclude": ["node_modules", "build"]
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "compilerOptions": {
+        "rootDir": "src",
+        "declaration": true,
+        "declarationDir": "build",
+        "sourceMap": true,
+        "lib": ["es6", "dom", "esnext", "es2016", "es2017"],
+        "target": "es5",
+        "jsx": "react",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noEmit": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "build", "**/*.stories.tsx"]
 }
