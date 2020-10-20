@@ -1,10 +1,12 @@
+[babel]: https://babeljs.io/
+[ts]: https://www.typescriptlang.org/
+[packagejson]: ./package.json
+
 # Building
 
-Common Components uses [rollup.js](https://rollupjs.org/) and [TypeScript](https://www.typescriptlang.org/) to build final package.
+Common Components uses [Babel.js][babel] and [TypeScript][ts] to build final package.
 
-To build follow the steps:
-
-1. Run the 'build' script in the [package.json](./package.json)
+To build the project, simply run the 'build' script found in the [package.json][packagejson]
 
 Done! There will be a build folder created now, which contains the adjusted package.json
 and all the required files (d.ts and .js)

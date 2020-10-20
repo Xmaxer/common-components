@@ -21,11 +21,17 @@ const Button: React.FC<IButtonProps> = ({
     buttonType = PRIMARY_BUTTON,
     ...ButtonProps
 }) => {
+    const defaultButton = () => {
+        console.warn(
+            'Invalid buttonType prop: Defaulting to primary button style'
+        );
+        return <PrimaryButton {...ButtonProps} />;
+    };
     if (buttonType === PRIMARY_BUTTON) {
         return <PrimaryButton {...ButtonProps} />;
     } else if (buttonType === SECONDARY_BUTTON) {
         return <SecondaryButton {...ButtonProps} />;
-    } else return null;
+    } else return defaultButton();
 };
 
 export default Button;
