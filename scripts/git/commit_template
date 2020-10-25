@@ -1,9 +1,9 @@
-# <type>: (If applied, this commit will...) <subject> (Max 50 char)
-# |<----  Using a Maximum Of 50 Characters  ---->|
+# <type>: (If applied, this commit will...) <subject> (Max 100 char)
+# |<----  Using a Maximum Of 50 Characters   ----------------------------------------------------->|
 
 
 # Explain why this change is being made
-# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+# |<----  Try To Limit Each Line to a Maximum Of 100 Characters    ------------------------------->|
 
 
 # Provide links or keys to any relevant tickets, articles or other resources
@@ -12,32 +12,42 @@
 #    See also: Github issue #25, #26
 
 
+# In case of breaking changes, make sure to add this footer: 
+# BREAKING CHANGE: <description> (Max 100 char)
+# |<----  Try To Limit Each Line to a Maximum Of 100 Characters    ------------------------------->|
+
+
 # --- COMMIT END ---
 #
 # Type can be
-#    feature  (new feature)
-#    fix      (bug fix)
+#    feat     (introduce a new feature - it correlates with MINOR in semver)
+#    fix      (patches a bug - it correlates with PATCH in semver)
 #    refactor (refactoring production code)
 #    dev      (setup, automations, contributing updates, etc)
 #    docs     (changes to documentation)
 #    test     (adding or refactoring tests)
+#    revert   (reverting to a previous state)
 #    wip      (work in progress commit to be squashed -- do not push!)**
 #
 # --------------------
 #
 # Remember to
+#   - Put a type before the subject
 #   - Separate subject from body with a blank line
-#   - Limit the subject line to 50 characters
+#   - Separate footers from body with a blank line
+#   - Limit the subject line to 100 characters
 #   - Capitalize the subject line
 #   - Do not end the subject line with a period
 #   - Use the imperative mood in the subject line
-#   - Wrap the body at 72 characters
+#   - Wrap the body at 100 characters
 #   - Use the body to explain what and why vs. how
 #   - Can use multiple lines with "-" for bullet points in body
-# 
+#   - Add a BREAKING CHANGE: footer if required (it correlates with MAJOR in semver)
+#
 # --------------------
 #
-# For more information check out https://chris.beams.io/posts/git-commit/
+# For more information on the commit rules check out https://www.conventionalcommits.org/en/v1.0.0/
 #
+# For more info on semantic versioning check out https://semver.org/
 #
 #

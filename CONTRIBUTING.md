@@ -7,37 +7,48 @@ All commit's messages must adhere to the following rules.
 -   [Message example][]
 -   [Tips][]
 
-If you want to read more and better understand these rules, check out this [article][].
+If you want to know more about the rules below, check out [conventional commits][].
 
 [commit message rules]: #Commit_message_rules
 [commit message template]: #Commit_message_template
 [message example]: #Message_template
 [tips]: #Tips
-[article]: https://chris.beams.io/posts/git-commit/
+[conventional commits]: https://www.conventionalcommits.org/en/v1.0.0/
 
 ## Commit message rules
 
+The body of the commit is organized in three sections: the commit's **subject**, the commit's **description**, organized in paragraphs, and one or more **footers**.
+
 The main rules to follow in writing a commit message are:
 
+-   Put a type before the subject (see below for the full list)
 -   Separate subject from body with a blank line
--   Limit the subject line to 50 characters
+-   Separate footers from body with a blank line
+-   Limit the subject line to 100 characters
 -   Capitalize the subject line
 -   Do not end the subject line with a period
 -   Use the imperative mood in the subject line
--   Wrap the body at 72 characters
+-   Wrap the body at 100 characters
 -   Use the body to explain what and why vs. how
+-   Add a BREAKING CHANGE: footer if required (it correlates with MAJOR in semver)
 
-The body of the commit is organized in three sections: the commit's **subject**,
-the commit's **description** and its **additional information**.
+The subject is always required, while the description and footers are optional.
 
-The subject is always required, wile the description and additional info sections are optional.
+Type can be:
+
+-   feat (introduce a new feature - it correlates with MINOR in semver)
+-   fix (patches a bug - it correlates with PATCH in semver)
+-   refactor (refactoring production code)
+-   dev (setup, automations, contributing updates, etc)
+-   docs (changes to documentation)
+-   test (adding or refactoring tests)
+-   revert (reverting to a previous state)
+-   wip (work in progress commit to be squashed -- do not push!)\*\*
 
 ## Commit message template
 
 A handy [template][] is provided to help you along the way on writing your commit messages.
-In order for git to use this template, just run the script 'set-git-commit-template' in the
-script section of the [package.json][], or run the following git command
-from the project root folder:
+In order for git to use this template, just run the `set-git-commit-template` script in the script section of the [package.json][], or run the following git command from the project root folder:
 
     	git config commit.template script/git/commit_template
 
@@ -48,9 +59,9 @@ from the project root folder:
 
 The following is a simple example of a commit message following the abovementioned rules:
 
-    	Summarize changes in around 50 characters or less
+    	docs: Summarize changes in around 100 characters or less
 
-    	More detailed explanatory text, if necessary. Wrap it to about 72
+    	More detailed explanatory text, if necessary. Wrap it to about 100
     	characters or so. In some contexts, the first line is treated as the
     	subject of the commit and the rest of the text as the body. The
     	blank line separating the summary from the body is critical (unless
@@ -79,6 +90,6 @@ The following is a simple example of a commit message following the abovemention
 ## Tips
 
 -   Set up git with the text editor of your choice
--   Configure your editor to automatically wrap the text to 72 chars
+-   Configure your editor to automatically wrap the text to 100 chars
 -   Never use the `-m \<msg\>` / `--message=\<msg\>` flag to `git commit`
 -   Favor the git CLI to GUIs and IDE integrations
