@@ -4,6 +4,7 @@
     "description": "The core components",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 0",
+        "test:ci": "echo \"Error: no test specified\" && exit 0",
         "build": "rimraf build && babel src --out-dir build --extensions \".tsx,.ts,.js,.jsx\" --ignore \"**/*.stories.tsx\" --source-maps true && tsc --noEmit false --emitDeclarationOnly true && ts-node scripts/generatePackageJson.ts",
         "storybook": "start-storybook -p 6006 -s ../packages/core/public",
         "storybook:build": "build-storybook -s ../packages/core/public",
