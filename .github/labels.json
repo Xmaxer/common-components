@@ -1,0 +1,112 @@
+{
+    "labels": {
+        "ci": {
+            "name": "CI",
+            "colour": "fff091",
+            "description": "Changes related to the CI/CD system"
+        },
+        "feature": {
+            "name": "Feature",
+            "colour": "5319e7",
+            "description": "Changes that introduce a new feature. Require MINOR version increase"
+        },
+        "invalid-pr": {
+            "name": "Invalid PR",
+            "colour": "e09884",
+            "description": "A PR with an invalid title"
+        },
+        "wip": {
+            "name": "WIP",
+            "colour": "f42ce0",
+            "description": "An open PR that is a work in progress"
+        },
+        "docs": {
+            "name": "Documentation",
+            "colour": "1d61e0",
+            "description": "Documentation related changes"
+        },
+        "test": {
+            "name": "Testing",
+            "colour": "20b29c",
+            "description": "Test related changes"
+        },
+        "bugfix": {
+            "name": "Bug fix",
+            "colour": "d5b8f9",
+            "description": "Changes that fix a bug. Require PATCH version increase"
+        }
+    },
+    "pr": {
+        "ci": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^ci:"
+                }
+            ]
+        },
+        "feature": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^feat:"
+                }
+            ]
+        },
+        "bugfix": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^fix:"
+                }
+            ]
+        },
+        "wip": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^wip:"
+                }
+            ]
+        },
+        "docs": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "filesMatch",
+                    "pattern": "**/*.stories.tsx"
+                },
+                {
+                    "type": "titleMatches",
+                    "pattern": "^docs:"
+                }
+            ]
+        },
+        "test": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "filesMatch",
+                    "pattern": "**/*.(spec.ts|test.tsx|test.ts|spec.tsx)"
+                },
+                {
+                    "type": "titleMatches",
+                    "pattern": "^test:"
+                }
+            ]
+        },
+        "invalid-pr": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^(?!.*:)"
+                }
+            ]
+        }
+    }
+}
