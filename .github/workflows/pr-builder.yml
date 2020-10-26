@@ -1,0 +1,27 @@
+name: 'CI/CD Process for PR Requests'
+
+on:
+    pull_request:
+        types: [opened, edited]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install modules
+              run: npm ci
+
+            - name: Check Prettier
+              run: npm run prettier:ci
+
+            - name: Check linting
+              run: npm run lint:ci
+
+            - name: Testing
+              run: npm run test:ci
+
+            - name: Build artifact
+              run: npm run build
