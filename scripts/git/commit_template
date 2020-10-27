@@ -12,7 +12,7 @@
 #    See also: Github issue #25, #26
 
 
-# In case of breaking changes, make sure to add this footer: 
+# In case of breaking changes, make sure to add this footer:
 # BREAKING CHANGE: <description> (Max 100 char)
 # |<----  Try To Limit Each Line to a Maximum Of 100 Characters    ------------------------------->|
 
@@ -28,7 +28,7 @@
 #    docs     (changes to documentation)
 #    test     (adding or refactoring tests)
 #    revert   (reverting to a previous state)
-#    wip      (work in progress commit to be squashed -- do not push!)**
+#    wip      (work in progress commit to be squashed -- do not push to protected branches!)**
 #
 # --------------------
 #
