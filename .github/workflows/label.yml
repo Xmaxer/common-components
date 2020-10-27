@@ -10,3 +10,8 @@ jobs:
             - uses: IvanFon/super-labeler-action@v1
               with:
                   github-token: '${{ secrets.GITHUB_TOKEN }}'
+
+            # this solution works for file based labels until we fix the 'super-labeler-action'
+            - uses: actions/labeler@2.2.0
+              with:
+                  repo-token: '${{ secrets.GITHUB_TOKEN }}'
