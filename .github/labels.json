@@ -3,12 +3,12 @@
         "ci": {
             "name": "CI",
             "colour": "fff091",
-            "description": "Changes related to the CI/CD system"
+            "description": "CI/CD system"
         },
         "feature": {
             "name": "Feature",
             "colour": "5319e7",
-            "description": "Changes that introduce a new feature. Require MINOR version increase"
+            "description": "Introduce a new feature. Require MINOR version increase"
         },
         "invalid-pr": {
             "name": "Invalid PR",
@@ -33,7 +33,32 @@
         "bugfix": {
             "name": "Bug fix",
             "colour": "d5b8f9",
-            "description": "Changes that fix a bug. Require PATCH version increase"
+            "description": "Fix a bug. Require PATCH version increase"
+        },
+        "development": {
+            "name": "Development",
+            "colour": "dbe053",
+            "description": "Setup, automation, project level changes etc."
+        },
+        "refactor": {
+            "name": "Refactor",
+            "colour": "19ed02",
+            "description": "Code refactor, without changing functionality"
+        },
+        "revert": {
+            "name": "Revert",
+            "colour": "4289ed",
+            "description": "Reverting codebase to a previous commit and/or removing commits"
+        },
+        "dep": {
+            "name": "Dependency update",
+            "colour": "67840f",
+            "description": "Updates to dependencies"
+        },
+        "breaking": {
+            "name": "Breaking change",
+            "colour": "ff1100",
+            "description": "Introduce breaking changes. Requires MAJOR version increase"
         }
     },
     "pr": {
@@ -43,6 +68,10 @@
                 {
                     "type": "titleMatches",
                     "pattern": "^ci:"
+                },
+                {
+                    "type": "filesMatch",
+                    "glob": ".github/**/*"
                 }
             ]
         },
@@ -78,7 +107,11 @@
             "conditions": [
                 {
                     "type": "filesMatch",
-                    "pattern": "**/*.stories.tsx"
+                    "glob": "**/*.*(stories.tsx|stories.ts|stories.jsx|stories.js)"
+                },
+                {
+                    "type": "filesMatch",
+                    "glob": ".storybook/**/*"
                 },
                 {
                     "type": "titleMatches",
@@ -91,7 +124,7 @@
             "conditions": [
                 {
                     "type": "filesMatch",
-                    "pattern": "**/*.(spec.ts|test.tsx|test.ts|spec.tsx)"
+                    "glob": "**/*.*(spec.ts|test.tsx|test.ts|spec.tsx)"
                 },
                 {
                     "type": "titleMatches",
@@ -104,7 +137,60 @@
             "conditions": [
                 {
                     "type": "titleMatches",
-                    "pattern": "^(?!.*:)"
+                    "pattern": "^(?!(feat|fix|refactor|dev|ci|docs|test|revert|wip):)"
+                }
+            ]
+        },
+        "refactor": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^refactor:"
+                }
+            ]
+        },
+        "development": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^dev:"
+                },
+                {
+                    "type": "filesMatch",
+                    "glob": "**/*.*(md|config.js|config.ts)"
+                },
+                {
+                    "type": "filesMatch",
+                    "glob": "scripts/**/*"
+                }
+            ]
+        },
+        "revert": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "titleMatches",
+                    "pattern": "^revert:"
+                }
+            ]
+        },
+        "dep": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "filesMatch",
+                    "glob": "package-lock.json"
+                }
+            ]
+        },
+        "breaking": {
+            "requires": 1,
+            "conditions": [
+                {
+                    "type": "descriptionMatches",
+                    "pattern": "/BREAKING CHANGE:/gm"
                 }
             ]
         }

@@ -44,7 +44,7 @@ Type can be:
 -   docs (changes to documentation)
 -   test (adding or refactoring tests)
 -   revert (reverting to a previous state)
--   wip (work in progress commit to be squashed -- do not push!)
+-   wip (work in progress commit to be squashed -- do not push to protected branches!)
 
 ## Commit message template
 
