@@ -1,18 +1,16 @@
 CI:
-    - any: ['.github/**/*']
+    - '.github/**/*'
 
 Documentation:
-    - any:
-          [
-              '.storybook/**/*',
-              '**/*.{stories.tsx,stories.ts,stories.jsx,stories.js}',
-          ]
+    - '.storybook/**/*'
+    - '**/*.{stories.tsx,stories.ts,stories.jsx,stories.js}'
 
 Testing:
-    - any: ['**/*.{spec.ts,test.tsx,test.ts,spec.tsx}']
+    - '**/*.{spec.ts,test.tsx,test.ts,spec.tsx}'
 
 Development:
-    - any: ['**/*.{md,config.js,config.ts}', 'scripts/**/*']
+    - '**/*.{md,config.js,config.ts}'
+    - 'scripts/**/*'
 
 Dependency update:
-    - any: ['package-lock.json']
+    - 'package-lock.json'
