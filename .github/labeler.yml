@@ -5,14 +5,14 @@ Documentation:
     - any:
           [
               '.storybook/**/*',
-              '**/*.*(stories.tsx|stories.ts|stories.jsx|stories.js)',
+              '**/*.{stories.tsx,stories.ts,stories.jsx,stories.js}',
           ]
 
 Testing:
-    - any: ['**/*.*(spec.ts|test.tsx|test.ts|spec.tsx)']
+    - any: ['**/*.{spec.ts,test.tsx,test.ts,spec.tsx}']
 
 Development:
-    - any: ['**/*.*(md|config.js|config.ts)', 'scripts/**/*']
+    - any: ['**/*.{md,config.js,config.ts}', 'scripts/**/*']
 
 Dependency update:
     - any: ['package-lock.json']

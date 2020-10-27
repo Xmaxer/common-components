@@ -107,7 +107,7 @@
             "conditions": [
                 {
                     "type": "filesMatch",
-                    "glob": "**/*.*(stories.tsx|stories.ts|stories.jsx|stories.js)"
+                    "glob": "**/*.{stories.tsx,stories.ts,stories.jsx,stories.js}"
                 },
                 {
                     "type": "filesMatch",
@@ -124,7 +124,7 @@
             "conditions": [
                 {
                     "type": "filesMatch",
-                    "glob": "**/*.*(spec.ts|test.tsx|test.ts|spec.tsx)"
+                    "glob": "**/*.{spec.ts,test.tsx,test.ts,spec.tsx}"
                 },
                 {
                     "type": "titleMatches",
@@ -159,7 +159,7 @@
                 },
                 {
                     "type": "filesMatch",
-                    "glob": "**/*.*(md|config.js|config.ts)"
+                    "glob": "**/*.{md,config.js,config.ts}"
                 },
                 {
                     "type": "filesMatch",
