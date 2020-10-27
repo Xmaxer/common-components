@@ -3,7 +3,7 @@
         "ci": {
             "name": "CI",
             "colour": "fff091",
-            "description": "CI/CD system"
+            "description": "CI/CD system changes"
         },
         "feature": {
             "name": "Feature",
