@@ -40,10 +40,11 @@ Type can be:
 -   fix (patches a bug - it correlates with PATCH in semver)
 -   refactor (refactoring production code)
 -   dev (setup, automations, contributing updates, etc)
+-   ci (ci/cd stuff)
 -   docs (changes to documentation)
 -   test (adding or refactoring tests)
 -   revert (reverting to a previous state)
--   wip (work in progress commit to be squashed -- do not push!)\*\*
+-   wip (work in progress commit to be squashed -- do not push!)
 
 ## Commit message template
 
