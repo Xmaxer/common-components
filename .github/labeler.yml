@@ -1,0 +1,16 @@
+CI:
+    - '.github/**/*'
+
+Documentation:
+    - '.storybook/**/*'
+    - '**/*.{stories.tsx,stories.ts,stories.jsx,stories.js}'
+
+Testing:
+    - '**/*.{spec.ts,test.tsx,test.ts,spec.tsx}'
+
+Development:
+    - '**/*.{md,config.js,config.ts}'
+    - 'scripts/**/*'
+
+Dependency update:
+    - 'package-lock.json'
