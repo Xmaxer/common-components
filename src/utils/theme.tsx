@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import React from 'react';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 
 declare module '@material-ui/core/styles/createPalette' {
     interface PaletteColor {
@@ -18,11 +19,13 @@ declare module '@material-ui/core/styles/createPalette' {
     }
 }
 
-export const palette = {
+export const palette: PaletteOptions = {
     primary: {
-        lighter: '#fff2ce',
+        lightest: '#fff2ce',
+        lighter: '#ffecb7',
         light: '#ffe36f',
         main: '#FAB900',
+        contrastText: '#565656',
     },
     secondary: {
         lightest: '#ffffff',
@@ -32,6 +35,7 @@ export const palette = {
         dark: '#A4AFB6',
         darker: '#afafaf',
         darkest: '#565656',
+        contrastText: '#565656',
     },
     error: {
         lighter: '#ffe3e3',
@@ -80,7 +84,7 @@ export function styled<P>(
             <ThemeProvider theme={theme}>
                 <Component {...props} />
             </ThemeProvider>
-        ) as React.ReactElement<P>;
+        );
     };
     NewComponent.displayName = Component.displayName;
     return NewComponent;
