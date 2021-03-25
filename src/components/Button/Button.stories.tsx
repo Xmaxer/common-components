@@ -1,30 +1,23 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { IButtonProps } from './Button.types';
-import Button from './Button';
+import Button, { Button as PureButton } from './Button';
 
 export default {
-    title: 'button/Primary Button',
-    component: Button,
-    argTypes: {
-        text: {
-            description: 'The text of the button',
-            control: {
-                type: 'text',
-            },
-        },
-    },
+    title: 'Button',
+    component: PureButton,
 };
 
-interface ITemplateArgs extends IButtonProps {
-    text: string;
-}
-
-const Template: Story<ITemplateArgs> = (args) => (
-    <Button {...args}>{args.text}</Button>
-);
+const Template: Story<IButtonProps> = (args) => <Button {...args} />;
 
 export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {
-    text: 'My button text',
+    children: 'Primary button',
+    buttonType: 'primary',
+};
+
+export const SecondaryButton = Template.bind({});
+SecondaryButton.args = {
+    children: 'Secondary button',
+    buttonType: 'secondary',
 };

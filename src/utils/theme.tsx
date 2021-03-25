@@ -1,37 +1,66 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import React from 'react';
-import { IButtonProps } from '../components/Button/Button.types';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 
-export const palette = {
+declare module '@material-ui/core/styles/createPalette' {
+    interface PaletteColor {
+        lightest: string;
+        lighter: string;
+        darker: string;
+        darkest: string;
+    }
+
+    interface SimplePaletteColorOptions {
+        lightest?: string;
+        lighter?: string;
+        darker?: string;
+        darkest?: string;
+    }
+}
+
+export const palette: PaletteOptions = {
     primary: {
-        light: '#4C536B',
-        main: '#2B2F3D',
-        dark: '#111218',
+        lightest: '#fff2ce',
+        lighter: '#ffecb7',
+        light: '#ffe36f',
+        main: '#FAB900',
+        contrastText: '#565656',
     },
     secondary: {
+        lightest: '#ffffff',
+        lighter: '#f6f6f6',
         light: '#DDE1E4',
         main: '#b0bac2',
         dark: '#A4AFB6',
+        darker: '#afafaf',
+        darkest: '#565656',
+        contrastText: '#565656',
     },
-    error: '#b20300',
-    success: '#00b206',
-    info: '#00b8ff',
+    error: {
+        lighter: '#ffe3e3',
+        light: '#f8ced0',
+        main: '#f75c5c',
+        dark: '#951e1e',
+    },
+    success: {
+        light: '#d3ffba',
+        main: '#b7e49d',
+        dark: '#457928',
+    },
+    info: {
+        light: '#7cebff',
+        main: '#37b1c7',
+    },
 };
 
 const generatedPalette = createMuiTheme({
     palette: {
         primary: palette.primary,
         secondary: palette.secondary,
-        error: {
-            main: palette.error,
-        },
-        success: {
-            main: palette.success,
-        },
-        info: {
-            main: palette.info,
-        },
+        error: palette.error,
+        success: palette.success,
+        info: palette.info,
         contrastThreshold: 3,
         tonalOffset: 0.2,
     },
@@ -41,17 +70,22 @@ const theme = createMuiTheme({
     ...generatedPalette,
 });
 
-//TODO this is wrong, should maybe implement
-function styled(Component: React.FC) {
-    return React.forwardRef<unknown, IButtonProps>(function WithCustomStyles(
-        props
-    ) {
+/**
+ * This HOC returns the component itself wrapped in a theme.
+ * The exported component doesn't work well with StoryBook, however there is a workaround as noted in linked Github issue.
+ * @see https://github.com/storybookjs/storybook/issues/9023
+ * @param Component The component that is exported
+ */
+export function styled<P>(
+    Component: React.ComponentType<P>
+): ({ ...props }: P) => React.ReactElement<P> {
+    const NewComponent = ({ ...props }: P) => {
         return (
             <ThemeProvider theme={theme}>
                 <Component {...props} />
             </ThemeProvider>
         );
-    });
+    };
+    NewComponent.displayName = Component.displayName;
+    return NewComponent;
 }
-
-export default styled;
